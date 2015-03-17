@@ -32,13 +32,13 @@
         if (lastScored === 1) {
             ball.x = canvasWidth - 100;
             ball.y = Math.floor(canvasHeight * 0.1);
-            ball.velX = -5;
+            ball.velX = -10;
             ball.velY = 5;
         }
         else if (lastScored === 2) {
             ball.x = 100;
             ball.y = Math.floor(canvasHeight * 0.1);
-            ball.velX = 5;
+            ball.velX = 10;
             ball.velY = 5;
         }
     }
