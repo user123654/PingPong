@@ -5,6 +5,8 @@
     this.width = 10;
     this.height = 100;
     this.score = 0;
+    this.movingUp = false;
+    this.movingDown = false;
 }
 
 Player.prototype = {

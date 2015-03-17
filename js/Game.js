@@ -2,7 +2,7 @@
 
     var ball = new Ball();
     ball.radius = 20;
-    ball.velX = 10;
+    ball.velX = 6;
 
     var speler1 = new Player();
     speler1.y = canvasHeight / 2;
@@ -32,13 +32,13 @@
         if (lastScored === 1) {
             ball.x = canvasWidth - 100;
             ball.y = Math.floor(canvasHeight * 0.1);
-            ball.velX = -10;
+            ball.velX = -6;
             ball.velY = 5;
         }
         else if (lastScored === 2) {
             ball.x = 100;
             ball.y = Math.floor(canvasHeight * 0.1);
-            ball.velX = 10;
+            ball.velX = 6;
             ball.velY = 5;
         }
     }
@@ -55,21 +55,49 @@
         }
         if (38 in keysDown) {
             speler2.moveUp();
+            speler2.movingUp = true;
+        }
+        else{
+            speler2.movingUp = false;
         }
         if (40 in keysDown) {
             speler2.moveDown();
+            speler2.movingDown = true;
+        }
+        else{
+            speler2.movingDown = false;
         }
         if (81 in keysDown) {
             speler1.moveUp();
+            speler1.movingUp = true;
+        }
+        else{
+            speler1.movingUp = false;
         }
         if (87 in keysDown) {
             speler1.moveDown();
+            speler1.movingDown = true;
+        }
+        else{
+            speler1.movingDown = false;
         }
         if (intersects(ball, speler1)) {
             ball.velX = -ball.velX;
+            if(speler1.movingUp==true){
+                ball.velY -= 1;
+            }
+            if(speler1.movingDown == true){
+                ball.velY += 1;
+            }
         }
         if (intersects(ball, speler2)) {
             ball.velX = -ball.velX;
+              if(speler2.movingUp==true){
+                ball.velY -= 1;
+            }
+            if(speler2.movingDown == true){
+                ball.velY += 1;
+            }
         }
     }
 
